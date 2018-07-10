@@ -1,18 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import './UserOutput';
+import UserOutput from './UserOutput';
+import UserInput from './UserInput';
 
 class App extends Component {
+  state = {
+    username: "sample name #2"
+
+  }
+
+  nameHandler = (newName) => {
+    this.setState({
+      username: newName
+    });
+  }
+
+  //click = {this.nameHandler.bind(this, 'NAME CHANGE SAMPLE #1')}
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <UserInput
+      change = {this.nameHandler.bind(this, 'NAME CHANGE SAMPLE #1')}
+      />
+
+      <UserOutput 
+      username = {this.state.username}
+      
+      />
+      <UserOutput />
+      <UserOutput />
+
+
       </div>
     );
   }
@@ -25,7 +44,10 @@ class App extends Component {
     Pass a username (of your choice) to UserOutput via props and display it there
     Add state to the App component (=> the username) and pass the username to the UserOutput component
     Add a method to manipulate the state (=> an event-handler method)
+
+    
     Pass the event-handler method reference to the UserInput component and bind it to the input-change event
+
     Ensure that the new input entered by the user overwrites the old username passed to UserOutput
     Add two-way-binding to your input (in UserInput) to also display the starting username
     Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets

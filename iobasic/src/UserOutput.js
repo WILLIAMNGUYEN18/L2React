@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import App from './App';
+import UserInput from './UserInput';
 
 class UserOutput extends Component {
   render() {
@@ -7,7 +8,9 @@ class UserOutput extends Component {
       <div>
       
         <p>
+          NAME: {this.props.username}
             paragraph 1
+
         </p>
 
         <p>
@@ -17,4 +20,4 @@ class UserOutput extends Component {
     );
   }
 }
-export default UserInput;
+export default UserOutput;
